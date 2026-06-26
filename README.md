@@ -19,7 +19,13 @@ Please take a look at the [Official NixOS Manual - Partitioning & Format](https:
 # sudo -i
 ```
 
-once the storage drives have been formatted and partition accordingly change to this directory
+once the storage drives have been formatted and partition accordingly generate configuration.nix and hardware-configuration.nix file
+run this command to generate config files
+```
+# nixos-generate-config --root /mnt
+```
+
+change to this directory
 ```
 # cd /mnt/etc/nixos/
 ```
