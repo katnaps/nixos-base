@@ -70,3 +70,5 @@ If everything went well
 ```
 # reboot
 ```
+
+After reboot you can add other packages in the configuration.nix or home.nix file and customise to your liking!
