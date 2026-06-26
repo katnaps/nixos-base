@@ -36,8 +36,9 @@ proceed to put the files in this directory
 ```
 
 ## Download the repo with either git clone or curl
+use git method, since curl you have to unzip the .zip file
 
-### For git
+### For git (Recommended)
 ```
 # git clone https://github.com/katnaps/nixos-base.git
 ```
