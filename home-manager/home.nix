@@ -45,7 +45,7 @@
     brave.enable = true;
     keepassxc.enable = true;
     git.enable = true;
-   
+
     fzf = {
       enable = true;
       # This tells fzf to use fd for searching files
