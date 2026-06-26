@@ -47,8 +47,7 @@ use git method, since curl you have to unzip the .zip file
 ```
 # curl -L https://github.com/katnaps/nixos-base/archive/refs/heads/main.zip -o repo.zip
 ```
-
-### unzip the repo.zip file
+unzip the repo.zip file
 ```
 # unzip repo.zip
 ```
