@@ -38,6 +38,48 @@ Please take a look at the [Official NixOS Manual - Partitioning & Format](https:
 # sudo -i
 ```
 
+### Partition struction
+```
+├── nvme0nX
+│   ├── nvme0nXp1 - [ boot ]
+│   └── nvme0nXp2 - nixos [ root ]
+└── sdX
+    └── sdX1 - [ data ]
+```
+### Formatting partition
+Formatting the root partition and labeling it nixos
+For initialising Ext4 partitions: mkfs.ext4. It is recommended that you assign a unique symbolic label to the file system using the option -L label, since this makes the file system configuration independent from device changes. For example:
+```
+# mkfs.ext4 -L nixos /dev/nvme0nXp2
+```
+Same goes for data partition and labeling it data using the option -L label
+```
+# mkfs.ext4 -L nixos /dev/sdX1
+```
+### UEFI systems
+For creating boot partitions: mkfs.fat. Again it’s recommended to assign a label to the boot partition: -n label. For example:
+```
+# mkfs.fat -F 32 -n boot /dev/nvme0nXp1
+```
+
+### Mount partition
+### Be sure to ALWAYS mount root partition FIRST!
+```
+# mount /dev/disk/by-label/nixos /mnt
+```
+
+For UEFI systems for the boot partition be sure to add this when mounting boot partition
+```
+# mkdir -p /mnt/boot
+# mount -o umask=077 /dev/disk/by-label/boot /mnt/boot
+```
+
+Mount data partition if created
+```
+# mkdir -p /mnt/data
+# mount /dev/disk/by-label/data /mnt/data
+```
+
 once the storage drives have been formatted and partition accordingly generate configuration.nix and hardware-configuration.nix file
 run this command to generate config files
 ```
