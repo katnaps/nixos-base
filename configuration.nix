@@ -11,7 +11,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
-  # Use which linux kernel
+  # Set linux kernel version
   boot.kernelPackages = pkgs.linuxPackages;
 
   # Use the systemd-boot EFI boot loader.
@@ -59,8 +59,6 @@
     ];
   };
 
-  programs.steam.enable = true;
-
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
@@ -97,6 +95,14 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 8 * 1024;
+      options = [ "discard" ];
+    }
+  ];
 
   system.stateVersion = "26.05";
 }
