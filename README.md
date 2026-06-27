@@ -38,7 +38,7 @@ Please take a look at the [Official NixOS Manual - Partitioning & Format](https:
 # sudo -i
 ```
 
-### Partition struction
+### Partition structure
 ```
 ├── nvme0nX
 │   ├── nvme0nXp1 - [ boot ]
