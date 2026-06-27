@@ -11,7 +11,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
-
+  # Set linux kernel version
   boot.kernelPackages = pkgs.linuxPackages;
 
   # Use the systemd-boot EFI boot loader.
@@ -41,8 +41,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
   services.displayManager.ly.enable = true;
 
   programs.hyprland = {
@@ -110,11 +108,13 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 8 * 1024;
+      options = [ "discard" ];
+    }
+  ];
 
   system.stateVersion = "26.05";
 }
