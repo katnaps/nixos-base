@@ -6,9 +6,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # Hyprland repo
-    hyprland.url = "github:hyprwm/Hyprland/afe2c390ab621e7a1dbd06744d33bc123acfe1f9";
-
     # Home manager repo
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
