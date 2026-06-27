@@ -1,4 +1,23 @@
 # Installation Guide
+## Stable Version -- NixOS 26.05 (Yarara) x86_64
+
+### Features:
+Unstable packages are able to be installed
+
+For example in configuration.nix
+```
+environment.systemPackages = with pkgs; [
+    unstable.fastfetch
+];
+```
+
+For home.nix installation
+```
+home.packages = with pkgs; [
+    unstable.fastfetch
+];
+```
+
 
 Take a look at installation section in the official NixOS Manual guide page below.
 ## [Official NixOS Manual](https://nixos.org/manual/nixos/stable/index.html#sec-installation-manual)
