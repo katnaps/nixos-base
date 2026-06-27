@@ -3,13 +3,11 @@
 
   inputs = {
     # NixOS repo
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-
-    # Pinned repo for BlueZ 5.84
-    nixpkgs-bluez.url = "github:nixos/nixpkgs/b86751bc4085f48661017fa226dee99fab6c651b";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # Hyprland repo
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland/afe2c390ab621e7a1dbd06744d33bc123acfe1f9";
 
     # Home manager repo
     home-manager = {
@@ -19,11 +17,7 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      home-manager,
-      ...
-    }@inputs:
+    { nixpkgs, home-manager, ... }@inputs:
     {
       nixosConfigurations = {
         nixos-fruit = nixpkgs.lib.nixosSystem {
@@ -36,6 +30,13 @@
             ./modules/bluetooth.nix
             ./modules/keyboard.nix
             ./modules/controller.nix
+
+            {
+              nixpkgs.overlays = [
+                (import ./overlays/bluez-585.nix)
+                (import ./overlays/unstable.nix inputs)
+              ];
+            }
 
             home-manager.nixosModules.home-manager
             {

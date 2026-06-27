@@ -39,9 +39,7 @@
   # Set your time zone.
   time.timeZone = "Asia/Kuala_Lumpur";
 
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
+  nixpkgs.config.allowUnfree = true;
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
@@ -118,6 +116,5 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  system.stateVersion = "26.05"; # Did you read the comment?
-
+  system.stateVersion = "26.05";
 }

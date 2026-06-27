@@ -1,5 +1,3 @@
-{ config, pkgs, ... }:
-
 {
   # System Udev Rules
   # MCHOSE Ace60 Pro (Allows user-space access to the keyboard/mouse HID raw device)

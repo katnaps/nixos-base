@@ -1,5 +1,3 @@
-{ config, pkgs, ... }:
-
 {
   # Fix DualShock 4 touchpad behavior and USB
   services.udev.extraRules = ''
