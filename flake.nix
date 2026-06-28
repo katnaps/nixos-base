@@ -7,7 +7,7 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # Hyprland repo
-    hyprland.url = "github:hyprwm/Hyprland/afe2c390ab621e7a1dbd06744d33bc123acfe1f9";
+    hyprland.url = "github:hyprwm/Hyprland";
 
     # Home manager repo
     home-manager = {
