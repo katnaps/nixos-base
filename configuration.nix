@@ -99,20 +99,20 @@
   zramSwap = {
     enable = true;
     algorithm = "zstd";
-    memoryPercent = 25; # Uses up to 4GB of your 16GB RAM for compressed, fast swap
+    memoryPercent = 25;
   };
 
   swapDevices = [
     {
       device = "/var/lib/swapfile";
-      size = 8 * 1024; # 8 GB emergency safety net on your SSD
-      options = [ "discard" ]; # Enables continuous TRIM to protect NVMe performance
-      priority = 100; # Explicitly lower than zram (32767), so zram is used first
+      size = 8 * 1024;
+      options = [ "discard" ];
+      priority = 100;
     }
   ];
 
   boot.kernel.sysctl = {
-    "vm.swappiness" = 100; # Balanced: utilizes zram cleanly without causing game micro-stutters
+    "vm.swappiness" = 100;
   };
 
   system.stateVersion = "26.05";
