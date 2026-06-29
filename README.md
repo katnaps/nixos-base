@@ -148,10 +148,12 @@ For example:
 For **UEFI systems** for the boot partition be sure to add this when mounting boot partition
 ```
 # mkdir -p /mnt/boot
-# mount -o **umask=077** /dev/disk/by-label/boot /mnt/boot
+# mount -o umask=077 /dev/disk/by-label/boot /mnt/boot
 ```
 <br/>
-
+Don't forget about **umask=077**  
+> To avoid getting warning sign about the boot partition not being safe & secure after completing NixOS installing process
+<br/>
 Mount data partition if created
 ```
 # mkdir -p /mnt/data
