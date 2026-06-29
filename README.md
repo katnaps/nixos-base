@@ -82,7 +82,8 @@ partition. By default when you create a new partition it will be Linux filesyste
 ```
 [ Type ]
 ```
-once you have changed to EFI system partition, press down on the arrow key to create another new partition and press Enter, press Enter again to use the rest of the disk storage for the partition
+use the arrow keys up and down to through the list, selectio EFI System at the top of the list, press Enter to select it.
+Once you have changed to EFI system partition, press down on the arrow key to create another new partition and press Enter, press Enter again to use the rest of the disk storage for the partition
 once you have created the two partitions it look like this as example:
 ```
 Device               Start       End     Sectors        Size    Type
