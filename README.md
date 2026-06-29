@@ -286,7 +286,7 @@ look for this line:
 users.users.katnaps = {
 ```
 
-once you've done that on to the next step, but before you install NixOS. 
+once you have done that, on to the next step. But before you install NixOS. 
 You will need to create flake.lock file from flake.nix, do so with
 
 ## nix flake update
