@@ -44,7 +44,7 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 extraSpecialArgs = { inherit inputs; };
-                users.myUsername = import ./home-manager/home.nix;
+                users.katnaps = import ./home-manager/home.nix;
                 backupFileExtension = "backup";
               };
             }
