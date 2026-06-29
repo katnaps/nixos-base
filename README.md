@@ -96,25 +96,84 @@ proceed to put the files in this directory
 /mnt/etc/nixos/
 ```
 
-## Download the repo with either git clone or curl
-use git method, since curl you have to unzip the .zip file
+## Download the repo with git clone
+Before downloading using git clone rename 
+```
+configuration.nix
+```
+to
+```
+configuration.nix.backup
+```
+since we are going to use the repo's own configuration.nix file, do it by:
+```
+# mv -v configuration.nix configuration.nix.backup
+```
 
-### For git (Recommended)
+### git clone
 ```
 # git clone https://github.com/katnaps/nixos-base.git
 ```
-
-### For curl
-```
-# curl -L https://github.com/katnaps/nixos-base/archive/refs/heads/main.zip -o repo.zip
-```
-unzip the repo.zip file in the current directory which should be
+be sure to move all the files from nixos-base directory to:
 ```
 /mnt/etc/nixos/
 ```
-run the unzip command
+before moving all the files in nixos-base remove so unnecessary file
+first move to nixos-base directory with:
 ```
-# unzip repo.zip
+# cd nixos-base
+```
+then start removing the files and .git directory 
+```
+# rm -v nixos-base/README.md
+# rm -v -rf .git/
+```
+once the files have been removed move back out of nixos-base by
+```
+# cd ../
+```
+you should be back in 
+```
+/mnt/etc/nixos/
+```
+directory
+
+now lets start moving all the files from nixos-base to
+```
+/mnt/etc/nixos/
+```
+use this command to move all the files from nixos-base
+```
+# mv -v nixos-base/* .
+```
+all of the files should have moved in 
+```
+/mnt/etc/nixos/
+```
+directory. Check by using:
+```
+# ls -la
+```
+you will need to double check and also change the hostname and username to your own
+
+### default username is myUsername
+change it to your own
+### default hostname will be myHostname
+change it to your own
+
+changing hostname and username in the following files using vim:
+```
+# vim home-mananager/home.nix
+# vim flake.nix
+# vim configuration.nix
+```
+once you've done that, and before you install NixOS. You will need to create flake.lock file from flake.nix, do so with
+```
+# nix --extra-experimental-features "nix-command flakes" flake update
+```
+it will create a flake.lock file in the directory, check it with
+```
+# ls -la
 ```
 
 
