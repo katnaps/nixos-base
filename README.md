@@ -276,7 +276,7 @@ users.katnaps = import ./home-manager/home.nix;
 ```
 ### configuration.nix
 change "nixos" to something you prefer
-look for this line:
+/n look for this line:
 ```
 networking.hostName = "nixos"; # Define your hostname.
 ```
