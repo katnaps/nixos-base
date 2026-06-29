@@ -326,5 +326,7 @@ If everything went well:
 ```
 # reboot
 ```
+### This installation will put you in a tty shell for login and also after logging in
+Use your declared user account to log in. If you didn’t declare one, you should still be able to log in using the root user.
 ### Post-reboot
 After reboot you can add other packages in the configuration.nix or home.nix file and customise to your liking!
