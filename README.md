@@ -303,7 +303,8 @@ it will create a flake.lock file in the directory, check it with
 
 
 ## Installing NixOS
-by running this command below it should use the flake.nix in the directory to start installation process
+by running this command below it should use the flake.nix in the directory to start installation process we will be
+using the --flake flag
 ```
 # nixos-install --flake /mnt/etc/nixos#hostname
 ```
