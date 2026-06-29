@@ -20,7 +20,7 @@
     { nixpkgs, home-manager, ... }@inputs:
     {
       nixosConfigurations = {
-        nixos-fruit = nixpkgs.lib.nixosSystem {
+        nixos = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
@@ -44,7 +44,7 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 extraSpecialArgs = { inherit inputs; };
-                users.coconut = import ./home-manager/home.nix;
+                users.myUsername = import ./home-manager/home.nix;
                 backupFileExtension = "backup";
               };
             }
