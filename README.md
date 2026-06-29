@@ -97,7 +97,7 @@ proceed to put the files in this directory
 ```
 
 ## Download the repo with git clone
-Before downloading using git clone rename 
+Before downloading using git clone, you will need to rename 
 ```
 configuration.nix
 ```
@@ -105,7 +105,7 @@ to
 ```
 configuration.nix.backup
 ```
-since we are going to use the repo's own configuration.nix file, do it by:
+since we are going to use the repo's configuration.nix file, rename it by:
 ```
 # mv -v configuration.nix configuration.nix.backup
 ```
