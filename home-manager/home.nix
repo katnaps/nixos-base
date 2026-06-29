@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "coconut";
-  home.homeDirectory = "/home/coconut";
+  home.username = "katnaps";
+  home.homeDirectory = "/home/katnaps";
 
   programs.git.enable = true;
 
