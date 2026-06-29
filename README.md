@@ -2,6 +2,7 @@
 ## Stable Version -- NixOS 26.05 (Yarara) x86_64
 
 ### Features:
+This install contains:
 Unstable packages are able to be installed
 
 For example in configuration.nix
@@ -55,6 +56,8 @@ nvme0nX
 sdX
 └── sdX1 - [ data ]
 ```
+since we are installing NixOS with a clean slate then you will want to wipe the disk drives with wipefs
+
 ## wipefs -a
 you want to wipe it with the following command:
 ```
@@ -106,7 +109,9 @@ Device               Start       End     Sectors        Size    Type
 /dev/sda1           xxxxxxx     xxxxxx  xxxxxxxxx     931.1G    Linux filesystem
 ```
 
-### Don't worry about creating a swap partition this repo's configuration.nix will create a swapFile which is much easier to change later in the future.
+### Don't worry about creating a swap partition 
+since a swap partition is permanent and harder to resize in the in the future.
+This repo's contains a configuration.nix that will create a swapFile which is much easier to change later in the future.
 
 ## Partition structure
 ```
@@ -127,7 +132,8 @@ Same goes for data partition and labeling it data using the option -L label
 # mkfs.ext4 -L data /dev/sdX1
 ```
 ### UEFI systems
-For creating boot partitions: mkfs.fat. Again it’s recommended to assign a label to the boot partition: -n label. For example:
+For creating boot partitions: mkfs.fat. Again it’s recommended to assign a label to the boot partition: -n label. 
+For example:
 ```
 # mkfs.fat -F 32 -n BOOT /dev/nvme0nXp1
 ```
@@ -152,6 +158,10 @@ Mount data partition if created
 
 once the disk drives have been formatted and partition accordingly generate configuration.nix and hardware-configuration.nix file
 run this command to generate config files
+
+## nixos-generate-config
+to generate a present configuration.nix file along with a hardware-configuration.nix that is base on your hardware and
+your newly created disk drive
 ```
 # nixos-generate-config --root /mnt
 ```
@@ -169,18 +179,14 @@ proceed to put the files in this directory
 ## Download the repo with git clone
 Before downloading using git clone, you will need to rename 
 ```
-configuration.nix
-```
-to
-```
-configuration.nix.backup
+configuration.nix --->>> configuration.nix.backup
 ```
 since we are going to use the repo's configuration.nix file, rename it by:
 ```
 # mv -v configuration.nix configuration.nix.backup
 ```
 
-### git clone
+## git clone
 ```
 # git clone https://github.com/katnaps/nixos-base.git
 ```
@@ -224,20 +230,69 @@ directory. Check by using:
 ```
 # ls -la
 ```
-you will need to double check and also change the hostname and username to your own
+you will need to double check and also change the hostname and username to your own liking
 
-### default username is katnaps
-change it to your own
-### default hostname will be nixos
-change it to your own
+## Default username is katnaps
+change it to your own username
+## Default hostname will be nixos
+change it to your own hostname
 
+## Use vim
 changing hostname and username in the following files using vim:
 ```
 # vim home-mananager/home.nix
 # vim flake.nix
 # vim configuration.nix
 ```
-once you've done that, and before you install NixOS. You will need to create flake.lock file from flake.nix, do so with
+
+## What to look out for
+### home.nix
+will need to change "katnaps" to something you prefer
+```
+home.username = "katnaps";
+home.homeDirectory = "/home/katnaps";
+```
+
+### flake.nix
+change nixos to something you prefer
+look for this line:
+```
+nixosConfigurations = {
+    nixos = nixpkgs.lib.nixosSystem {
+    };
+};
+```
+For example like this:
+```
+nixosConfigurations = {
+    juicebox = nixpkgs.lib.nixosSystem {
+    };
+};
+```
+change katnaps to something you prefer
+look for this line:
+```
+users.katnaps = import ./home-manager/home.nix;
+```
+### configuration.nix
+change "nixos" to something you prefer
+look for this line:
+```
+networking.hostName = "nixos"; # Define your hostname.
+```
+change katnaps to something you prefer
+look for this line:
+```
+users.users.katnaps = {
+```
+
+once you have done that, on to the next step. But before you install NixOS. 
+You will need to create flake.lock file from flake.nix, do so with
+
+## nix flake update
+since experimental-features "nix-command flakes" has not been enable yet, 
+you will need to use a special flag to temporarily be able to use nix flake update
+use the command below:
 ```
 # nix --extra-experimental-features "nix-command flakes" flake update
 ```
@@ -247,8 +302,9 @@ it will create a flake.lock file in the directory, check it with
 ```
 
 
-## Install on NixOS
-by running this command below it should use the flake.nix in the directory to start installation process
+## Installing NixOS
+by running this command below it should use the flake.nix in the directory to start installation process we will be
+using the --flake flag
 ```
 # nixos-install --flake /mnt/etc/nixos#hostname
 ```
@@ -262,13 +318,15 @@ Retype new password: ***
 ```
 
 ## Set password for user account declared from your configuration.nix, flake.nix and home.nix
-If you plan to login into this user, set a password before rebooting, e.g. for the katnaps user:
+If you plan to log in using this user, set a password before rebooting, e.g. for the katnaps user:
 ```
 # nixos-enter --root /mnt -c 'passwd katnaps'
 ```
-If everything went well
+If everything went well:
 ```
 # reboot
 ```
+### This installation will put you in a tty shell
+Use your declared user account to log in. If you didn’t declare one, you should still be able to log in using the root user.
 ### Post-reboot
 After reboot you can add other packages in the configuration.nix or home.nix file and customise to your liking!
