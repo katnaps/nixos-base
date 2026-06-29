@@ -318,11 +318,11 @@ Retype new password: ***
 ```
 
 ## Set password for user account declared from your configuration.nix, flake.nix and home.nix
-If you plan to login into this user, set a password before rebooting, e.g. for the katnaps user:
+If you plan to log in using this user, set a password before rebooting, e.g. for the katnaps user:
 ```
 # nixos-enter --root /mnt -c 'passwd katnaps'
 ```
-If everything went well
+If everything went well:
 ```
 # reboot
 ```
