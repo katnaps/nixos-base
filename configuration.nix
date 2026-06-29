@@ -30,7 +30,7 @@
 
   boot.loader.systemd-boot.configurationLimit = 10;
 
-  networking.hostName = "nixos-fruit"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
@@ -61,7 +61,7 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.coconut = {
+  users.users.myUsername = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
