@@ -2,6 +2,7 @@
 ## Stable Version -- NixOS 26.05 (Yarara) x86_64
 
 ### Features:
+This install contains:
 Unstable packages are able to be installed
 
 For example in configuration.nix
@@ -108,7 +109,9 @@ Device               Start       End     Sectors        Size    Type
 /dev/sda1           xxxxxxx     xxxxxx  xxxxxxxxx     931.1G    Linux filesystem
 ```
 
-### Don't worry about creating a swap partition this repo's configuration.nix will create a swapFile which is much easier to change later in the future.
+### Don't worry about creating a swap partition 
+since a swap partition is permanent and harder to resize in the in the future.
+This repo's contains a configuration.nix that will create a swapFile which is much easier to change later in the future.
 
 ## Partition structure
 ```
@@ -175,18 +178,14 @@ proceed to put the files in this directory
 ## Download the repo with git clone
 Before downloading using git clone, you will need to rename 
 ```
-configuration.nix
-```
-to
-```
-configuration.nix.backup
+configuration.nix --->>> configuration.nix.backup
 ```
 since we are going to use the repo's configuration.nix file, rename it by:
 ```
 # mv -v configuration.nix configuration.nix.backup
 ```
 
-### git clone
+## git clone
 ```
 # git clone https://github.com/katnaps/nixos-base.git
 ```
@@ -258,7 +257,7 @@ it will create a flake.lock file in the directory, check it with
 ```
 
 
-## Install on NixOS
+## Installing NixOS
 by running this command below it should use the flake.nix in the directory to start installation process
 ```
 # nixos-install --flake /mnt/etc/nixos#hostname
