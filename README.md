@@ -56,7 +56,7 @@ nvme0nX
 sdX
 └── sdX1 - [ data ]
 ```
-since we are installing NixOS with a clean slate then you will want to wipe the disk drives with `wipefs`
+since we are installing NixOS with a clean slate then you will want to wipe the disk drives with `wipefs -a`
 
 ## wipefs -a
 you want to wipe it with the following command:
@@ -132,7 +132,7 @@ Same goes for data partition and labeling it data using the option -L label
 ```
 # mkfs.ext4 -L data /dev/sdX1
 ```
-### UEFI systems
+### UEFI systems  
 For creating boot partitions: mkfs.fat. Again it’s recommended to assign a label to the boot partition: -n label.  
 For example:
 ```
@@ -144,12 +144,13 @@ For example:
 ```
 # mount /dev/disk/by-label/nixos /mnt
 ```
-
-For UEFI systems for the boot partition be sure to add this when mounting boot partition
+<br/>
+For **UEFI systems** for the boot partition be sure to add this when mounting boot partition
 ```
 # mkdir -p /mnt/boot
-# mount -o umask=077 /dev/disk/by-label/boot /mnt/boot
+# mount -o **umask=077** /dev/disk/by-label/boot /mnt/boot
 ```
+<br/>
 
 Mount data partition if created
 ```
@@ -157,12 +158,12 @@ Mount data partition if created
 # mount /dev/disk/by-label/data /mnt/data
 ```
 
-once the disk drives have been formatted and partition accordingly generate configuration.nix and hardware-configuration.nix file
+once the disk drives have been formatted and partition accordingly generate `configuration.nix` and `hardware-configuration.nix` file
 run this command to generate config files
 
-## nixos-generate-config
-to generate a present configuration.nix file along with a hardware-configuration.nix that is base on your hardware and
-your newly created disk drive
+## nixos-generate-config  
+to generate a present `configuration.nix` file along with a `hardware-configuration.nix` that is base on your hardware and
+your newly created partitions
 ```
 # nixos-generate-config --root /mnt
 ```
@@ -182,7 +183,7 @@ Before downloading using git clone, you will need to rename
 ```
 configuration.nix --->>> configuration.nix.backup
 ```
-since we are going to use the repo's configuration.nix file, rename it by:
+since we are going to use the repo's `configuration.nix` file, rename it by:
 ```
 # mv -v configuration.nix configuration.nix.backup
 ```
@@ -209,17 +210,9 @@ once the files have been removed move back out of nixos-base by
 ```
 # cd ../
 ```
-you should be back in 
-```
-/mnt/etc/nixos/
-```
-directory
-
-now lets start moving all the files from nixos-base to
-```
-/mnt/etc/nixos/
-```
-use this command to move all the files from nixos-base
+you should be back in `/mnt/etc/nixos/` directory now lets start moving all the files from `nixos-base` to `/mnt/etc/nixos/`  
+use this command to move all the files  
+from nixos-base
 ```
 # mv -v nixos-base/* .
 ```
@@ -257,7 +250,7 @@ home.homeDirectory = "/home/katnaps";
 ```
 
 ### flake.nix
-**> Remember to have hostname the same as in configuration.nix**
+**Remember to have hostname the same as in configuration.nix**  
 change `nixos` to something you prefer  
 look for this line:
 ```
@@ -279,7 +272,7 @@ look for this line:
 users.katnaps = import ./home-manager/home.nix;
 ```
 ### configuration.nix
-**> Remember to have hostname the same as in flake.nix**
+**Remember to have hostname the same as in flake.nix**  
 change `"nixos"` to something you prefer  
 look for this line:
 ```
@@ -290,13 +283,13 @@ look for this line:
 ```
 users.users.katnaps = {
 ```
-### **Be sure that the hostname in configuration.nix & flake.nix is matching**
+### Be sure that the hostname in configuration.nix & flake.nix is matching
 
 once you have done that, on to the next step. But before you install NixOS. 
 You will need to create flake.lock file from flake.nix, do so with
 
 ## nix flake update
-since experimental-features "nix-command flakes" has not been enable yet, 
+since `experimental-features "nix-command flakes"` has not been enable yet, 
 you will need to use a special flag to temporarily be able to use nix flake update
 use the command below:
 ```
