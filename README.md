@@ -132,7 +132,8 @@ Same goes for data partition and labeling it data using the option -L label
 # mkfs.ext4 -L data /dev/sdX1
 ```
 ### UEFI systems
-For creating boot partitions: mkfs.fat. Again it’s recommended to assign a label to the boot partition: -n label. For example:
+For creating boot partitions: mkfs.fat. Again it’s recommended to assign a label to the boot partition: -n label. 
+For example:
 ```
 # mkfs.fat -F 32 -n BOOT /dev/nvme0nXp1
 ```
