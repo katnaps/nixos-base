@@ -229,20 +229,64 @@ directory. Check by using:
 ```
 # ls -la
 ```
-you will need to double check and also change the hostname and username to your own
+you will need to double check and also change the hostname and username to your own liking
 
-### Default username is katnaps
-change it to your own
-### Default hostname will be nixos
-change it to your own
+## Default username is katnaps
+change it to your own username
+## Default hostname will be nixos
+change it to your own hostname
 
+## Use vim
 changing hostname and username in the following files using vim:
 ```
 # vim home-mananager/home.nix
 # vim flake.nix
 # vim configuration.nix
 ```
-once you've done that, and before you install NixOS. You will need to create flake.lock file from flake.nix, do so with
+
+## What to look out for
+### home.nix
+will need to change "katnaps" to something you prefer
+```
+home.username = "katnaps";
+home.homeDirectory = "/home/katnaps";
+```
+
+### flake.nix
+change nixos to something you prefer
+look for this line:
+```
+nixosConfigurations = {
+    nixos = nixpkgs.lib.nixosSystem {
+    };
+};
+```
+For example like this:
+```
+nixosConfigurations = {
+    juicebox = nixpkgs.lib.nixosSystem {
+    };
+};
+```
+change katnaps to something you prefer
+look for this line:
+```
+users.katnaps = import ./home-manager/home.nix;
+```
+### configuration.nix
+change "nixos" to something you prefer
+look for this line:
+```
+networking.hostName = "nixos"; # Define your hostname.
+```
+change katnaps to something you prefer
+look for this line:
+```
+users.users.katnaps = {
+```
+
+once you've done that on to the next step, but before you install NixOS. 
+You will need to create flake.lock file from flake.nix, do so with
 
 ## nix flake update
 since experimental-features "nix-command flakes" has not been enable yet, 
