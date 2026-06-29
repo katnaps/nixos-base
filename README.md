@@ -97,7 +97,7 @@ proceed to put the files in this directory
 ```
 
 ## Download the repo with git clone
-Before downloading using git clone rename 
+Before downloading using git clone, you will need to rename 
 ```
 configuration.nix
 ```
@@ -105,7 +105,7 @@ to
 ```
 configuration.nix.backup
 ```
-since we are going to use the repo's own configuration.nix file, do it by:
+since we are going to use the repo's own configuration.nix file, rename it by:
 ```
 # mv -v configuration.nix configuration.nix.backup
 ```
@@ -156,8 +156,10 @@ directory. Check by using:
 ```
 you will need to double check and also change the hostname and username to your own
 
-### default username in the this repo is myUsername change it to your own
-### default hostname will be myHostname change it to your own
+### default username is myUsername
+change it to your own
+### default hostname will be myHostname
+change it to your own
 
 changing hostname and username in the following files using vim:
 ```
