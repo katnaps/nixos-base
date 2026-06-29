@@ -156,9 +156,9 @@ directory. Check by using:
 ```
 you will need to double check and also change the hostname and username to your own
 
-### default username is myUsername
+### default username is katnaps
 change it to your own
-### default hostname will be myHostname
+### default hostname will be nixos
 change it to your own
 
 changing hostname and username in the following files using vim:
