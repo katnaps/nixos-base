@@ -37,8 +37,77 @@ Please take a look at the [Official NixOS Manual - Partitioning & Format](https:
 ```
 # sudo -i
 ```
+use lsblk to list down the disk devices
 
-### Partition structure
+```
+# lsblk
+```
+you will see it something like this
+```
+sdX
+nvme0nX
+```
+but if there is already a partition in the drive, e.g like below:
+```
+nvme0nX
+├── nvme0nXp1 - [ boot ]
+└── nvme0nXp2 - nixos [ root ]
+sdX
+└── sdX1 - [ data ]
+```
+## wipefs -a
+you want to wipe it with the following command:
+```
+# wipefs -a /dev/nvme0nX
+# wipefs -a /dev/sdX
+```
+
+## cfdisk
+once you have a wiped your disk devices, proceed with using the cfdisk tool to create a new partition on your new wipe devices
+like this:
+```
+# cfdisk /dev/nvme0nX
+# cfdisk /dev/sdX
+```
+since you have wiped the disk storage, using the cfdisk tool it will ask you to select label type:
+```
+gpt
+```
+now in cfdisk tool you want to create a UEFI boot partition
+create a new partition by pressing Enter:
+```
+1G EFI System
+```
+partition. By default when you create a new partition it will be Linux filesystem. Use the arrow keys on your keyboard to select
+```
+[ Type ]
+```
+once you have changed to EFI system partition, press down on the arrow key to create another new partition and press Enter, press Enter again to use the rest of the disk storage for the partition
+once you have created the two partitions it look like this as example:
+```
+Device               Start       End     Sectors        Size    Type
+/dev/nvme0n1p1      xxxxxxx     xxxxxx  xxxxxxxxx         1G    EFI System
+/dev/nvme0n1p2      xxxxxxx     xxxxxx  xxxxxxxxx     461.1G    Linux filesystem
+```
+move with your arrow keys to 
+```
+[ Write ]
+```
+to write the new parition table to disk, type yes and Enter to confirm it when prompt
+once you have written the new partition table to disk and have confirmed it, you maybe exit the cfdisk tool by using the arrow keys and selecting
+```
+[ Quit ]
+```
+it should show syncing disks in the terminal after exiting cfdisk tool.
+This is the same for other disk devices for example the data disk storage:
+```
+Device               Start       End     Sectors        Size    Type
+/dev/sda1           xxxxxxx     xxxxxx  xxxxxxxxx     931.1G    Linux filesystem
+```
+
+### Don't worry about creating a swap partition this repo's configuration.nix will create a swapFile which is much easier to change later in the future.
+
+## Partition structure
 ```
 ├── nvme0nX
 │   ├── nvme0nXp1 - [ boot ]
@@ -46,7 +115,7 @@ Please take a look at the [Official NixOS Manual - Partitioning & Format](https:
 └── sdX
     └── sdX1 - [ data ]
 ```
-### Formatting partition
+## Formatting partition
 Formatting the root partition and labeling it nixos
 For initialising Ext4 partitions: mkfs.ext4. It is recommended that you assign a unique symbolic label to the file system using the option -L label, since this makes the file system configuration independent from device changes. For example:
 ```
@@ -59,10 +128,10 @@ Same goes for data partition and labeling it data using the option -L label
 ### UEFI systems
 For creating boot partitions: mkfs.fat. Again it’s recommended to assign a label to the boot partition: -n label. For example:
 ```
-# mkfs.fat -F 32 -n boot /dev/nvme0nXp1
+# mkfs.fat -F 32 -n BOOT /dev/nvme0nXp1
 ```
 
-### Mount partition
+## Mount partition
 ### Be sure to ALWAYS mount root partition FIRST!
 ```
 # mount /dev/disk/by-label/nixos /mnt
@@ -80,7 +149,7 @@ Mount data partition if created
 # mount /dev/disk/by-label/data /mnt/data
 ```
 
-once the storage drives have been formatted and partition accordingly generate configuration.nix and hardware-configuration.nix file
+once the disk drives have been formatted and partition accordingly generate configuration.nix and hardware-configuration.nix file
 run this command to generate config files
 ```
 # nixos-generate-config --root /mnt
@@ -105,7 +174,7 @@ to
 ```
 configuration.nix.backup
 ```
-since we are going to use the repo's own configuration.nix file, rename it by:
+since we are going to use the repo's configuration.nix file, rename it by:
 ```
 # mv -v configuration.nix configuration.nix.backup
 ```
@@ -169,9 +238,9 @@ changing hostname and username in the following files using vim:
 ```
 once you've done that, and before you install NixOS. You will need to create flake.lock file from flake.nix, do so with
 ```
-# nix flake update
+# nix --extra-experimental-features "nix-command flakes" flake update
 ```
-it will create a flake.locl file in the directory, check it with
+it will create a flake.lock file in the directory, check it with
 ```
 # ls -la
 ```
