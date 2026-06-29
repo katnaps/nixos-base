@@ -231,9 +231,9 @@ directory. Check by using:
 ```
 you will need to double check and also change the hostname and username to your own
 
-### default username is katnaps
+### Default username is katnaps
 change it to your own
-### default hostname will be nixos
+### Default hostname will be nixos
 change it to your own
 
 changing hostname and username in the following files using vim:
