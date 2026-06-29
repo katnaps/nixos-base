@@ -110,8 +110,8 @@ Device               Start       End     Sectors        Size    Type
 ```
 
 ### Don't worry about creating a swap partition  
-since a swap partition is permanent and harder to resize in the in the future.<br/>
-> This repo's contains a configuration.nix that will create a swapFile which is much easier to change later in the future, within configuration.nix
+since a swap partition is kinda permanent and harder to resize in the future.<br/>
+> This repo contains a configuration.nix that will create a swapFile which is much easier to change later in the future, within configuration.nix
 
 ## Partition structure
 ```
