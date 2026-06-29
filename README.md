@@ -54,7 +54,7 @@ For initialising Ext4 partitions: mkfs.ext4. It is recommended that you assign a
 ```
 Same goes for data partition and labeling it data using the option -L label
 ```
-# mkfs.ext4 -L nixos /dev/sdX1
+# mkfs.ext4 -L data /dev/sdX1
 ```
 ### UEFI systems
 For creating boot partitions: mkfs.fat. Again it’s recommended to assign a label to the boot partition: -n label. For example:
