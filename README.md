@@ -56,7 +56,7 @@ nvme0nX
 sdX
 └── sdX1 - [ data ]
 ```
-since we are installing NixOS with a clean slate then you will want to wipe the disk drives with wipefs
+since we are installing NixOS with a clean slate then you will want to wipe the disk drives with `wipefs`
 
 ## wipefs -a
 you want to wipe it with the following command:
@@ -66,13 +66,13 @@ you want to wipe it with the following command:
 ```
 
 ## cfdisk
-once you have a wiped your disk devices, proceed with using the cfdisk tool to create a new partition on your new wipe devices
+once you have a wiped your disk devices, proceed with using the `cfdisk` tool to create a new partition on your new wipe devices
 like this:
 ```
 # cfdisk /dev/nvme0nX
 # cfdisk /dev/sdX
 ```
-since you have wiped the disk storage, using the cfdisk tool it will ask you to select label type:
+since you have wiped the disk storage, using the `cfdisk` tool it will ask you to select label type:
 ```
 gpt
 ```
@@ -98,20 +98,20 @@ move with your arrow keys to
 [ Write ]
 ```
 to write the new parition table to disk, type yes and Enter to confirm it when prompt
-once you have written the new partition table to disk and have confirmed it, you maybe exit the cfdisk tool by using the arrow keys and selecting
+once you have written the new partition table to disk and have confirmed it, you maybe exit the `cfdisk` tool by using the arrow keys and selecting
 ```
 [ Quit ]
 ```
-it should show syncing disks in the terminal after exiting cfdisk tool.
+it should show syncing disks in the terminal after exiting `cfdisk` tool.
 This is the same for other disk devices for example the data disk storage:
 ```
 Device               Start       End     Sectors        Size    Type
 /dev/sda1           xxxxxxx     xxxxxx  xxxxxxxxx     931.1G    Linux filesystem
 ```
 
-### Don't worry about creating a swap partition 
-since a swap partition is permanent and harder to resize in the in the future.
-This repo's contains a configuration.nix that will create a swapFile which is much easier to change later in the future.
+### Don't worry about creating a swap partition  
+since a swap partition is permanent and harder to resize in the in the future.<br/>
+> This repo's contains a configuration.nix that will create a swapFile which is much easier to change later in the future, within configuration.nix
 
 ## Partition structure
 ```
@@ -123,7 +123,8 @@ This repo's contains a configuration.nix that will create a swapFile which is mu
 ```
 ## Formatting partition
 Formatting the root partition and labeling it nixos
-For initialising Ext4 partitions: mkfs.ext4. It is recommended that you assign a unique symbolic label to the file system using the option -L label, since this makes the file system configuration independent from device changes. For example:
+For initialising Ext4 partitions: mkfs.ext4. It is recommended that you assign a unique symbolic label to the file system using the option -L label, since this makes the file system configuration independent from device changes.  
+For example:
 ```
 # mkfs.ext4 -L nixos /dev/nvme0nXp2
 ```
@@ -132,7 +133,7 @@ Same goes for data partition and labeling it data using the option -L label
 # mkfs.ext4 -L data /dev/sdX1
 ```
 ### UEFI systems
-For creating boot partitions: mkfs.fat. Again it’s recommended to assign a label to the boot partition: -n label. 
+For creating boot partitions: mkfs.fat. Again it’s recommended to assign a label to the boot partition: -n label.  
 For example:
 ```
 # mkfs.fat -F 32 -n BOOT /dev/nvme0nXp1
@@ -232,10 +233,12 @@ directory. Check by using:
 ```
 you will need to double check and also change the hostname and username to your own liking
 
-## Default username is katnaps
+## Default username is `katnaps`
 change it to your own username
-## Default hostname will be nixos
+## Default hostname will be `nixos`
 change it to your own hostname
+
+### **Making sure the hostname in both configuration.nix & flake.nix is the same**
 
 ## Use vim
 changing hostname and username in the following files using vim:
@@ -247,14 +250,15 @@ changing hostname and username in the following files using vim:
 
 ## What to look out for
 ### home.nix
-will need to change "katnaps" to something you prefer
+will need to change `"katnaps"` to something you prefer
 ```
 home.username = "katnaps";
 home.homeDirectory = "/home/katnaps";
 ```
 
 ### flake.nix
-change nixos to something you prefer
+**> Remember to have hostname the same as in configuration.nix**
+change `nixos` to something you prefer  
 look for this line:
 ```
 nixosConfigurations = {
@@ -269,22 +273,24 @@ nixosConfigurations = {
     };
 };
 ```
-change katnaps to something you prefer
+change `katnaps` to something you prefer  
 look for this line:
 ```
 users.katnaps = import ./home-manager/home.nix;
 ```
 ### configuration.nix
-change "nixos" to something you prefer
+**> Remember to have hostname the same as in flake.nix**
+change `"nixos"` to something you prefer  
 look for this line:
 ```
 networking.hostName = "nixos"; # Define your hostname.
 ```
-change katnaps to something you prefer
+change `katnaps` to something you prefer  
 look for this line:
 ```
 users.users.katnaps = {
 ```
+### **Be sure that the hostname in configuration.nix & flake.nix is matching**
 
 once you have done that, on to the next step. But before you install NixOS. 
 You will need to create flake.lock file from flake.nix, do so with
@@ -300,11 +306,11 @@ it will create a flake.lock file in the directory, check it with
 ```
 # ls -la
 ```
-
+<br/>
 
 ## Installing NixOS
 by running this command below it should use the flake.nix in the directory to start installation process we will be
-using the --flake flag
+using the `--flake` flag
 ```
 # nixos-install --flake /mnt/etc/nixos#hostname
 ```
