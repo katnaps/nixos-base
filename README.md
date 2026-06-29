@@ -145,7 +145,7 @@ For example:
 # mount /dev/disk/by-label/nixos /mnt
 ```
 <br/>
-For **UEFI systems** for the boot partition be sure to add this when mounting boot partition
+For UEFI systems for the boot partition be sure to add this when mounting boot partition
 ```
 # mkdir -p /mnt/boot
 # mount -o umask=077 /dev/disk/by-label/boot /mnt/boot
