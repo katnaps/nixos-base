@@ -31,7 +31,7 @@ This is a starting base for NixOS installation configuration with flake and home
 Be sure to be connected to the internet before proceeding.
 You run this command to see if you have establish a internet connection.
 ```
-# ping -c 3 nixor.org
+# ping -c 3 nixos.org
 ```
 ### login sudo -i so you can format the disk drive 
 Please take a look at the [Official NixOS Manual - Partitioning & Format](https://nixos.org/manual/nixos/stable/index.html#sec-installation-manual-partitioning) for more details on how to partition a drive
