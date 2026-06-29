@@ -55,6 +55,8 @@ nvme0nX
 sdX
 └── sdX1 - [ data ]
 ```
+since we are installing NixOS with a clean slate then you will want to wipe the disk drives with wipefs
+
 ## wipefs -a
 you want to wipe it with the following command:
 ```
@@ -152,6 +154,10 @@ Mount data partition if created
 
 once the disk drives have been formatted and partition accordingly generate configuration.nix and hardware-configuration.nix file
 run this command to generate config files
+
+## nixos-generate-config
+to generate a present configuration.nix file along with a hardware-configuration.nix that is base on your hardware and
+your newly created disk drive
 ```
 # nixos-generate-config --root /mnt
 ```
@@ -238,6 +244,11 @@ changing hostname and username in the following files using vim:
 # vim configuration.nix
 ```
 once you've done that, and before you install NixOS. You will need to create flake.lock file from flake.nix, do so with
+
+## nix flake update
+since experimental-features "nix-command flakes" has not been enable yet, 
+you will need to use a special flag to temporarily be able to use nix flake update
+use the command below:
 ```
 # nix --extra-experimental-features "nix-command flakes" flake update
 ```
