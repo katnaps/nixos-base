@@ -102,7 +102,7 @@ once you have written the new partition table to disk and have confirmed it, you
 ```
 [ Quit ]
 ```
-it should show syncing disks in the terminal after exiting `cfdisk` tool.
+it should show `Syncing disks.` in the terminal after exiting `cfdisk` tool.
 This is the same for other disk devices for example the data disk storage:
 ```
 Device               Start       End     Sectors        Size    Type
