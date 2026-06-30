@@ -73,7 +73,7 @@ like this:
 # cfdisk /dev/sdX
 ```
 since you have wiped the disk storage, using the `cfdisk` tool it will ask you to  
-Select label type:
+Select label type
 ```
 gpt
 ```
