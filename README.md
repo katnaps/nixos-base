@@ -226,6 +226,14 @@ directory. Check by using:
 ```
 # ls -la
 ```
+now delete the empty `nixos-base` directory with the following command
+```
+# rm -v -rf nixos-base/
+```
+now check the `/mnt/etc/nixos/` directory again with
+```
+# ls -la
+```
 you will need to double check and also change the hostname and username to your own liking
 
 ## Default username is `katnaps`
