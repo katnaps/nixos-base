@@ -72,7 +72,8 @@ like this:
 # cfdisk /dev/nvme0nX
 # cfdisk /dev/sdX
 ```
-since you have wiped the disk storage, using the `cfdisk` tool it will ask you to select label type:
+since you have wiped the disk storage, using the `cfdisk` tool it will ask you to  
+Select label type:
 ```
 gpt
 ```
