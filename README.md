@@ -78,7 +78,7 @@ Select label type
 gpt
 ```
 now in cfdisk tool you want to create a UEFI boot partition
-create a new partition by pressing Enter:
+create a new partition by pressing Enter
 ```
 1G EFI System
 ```
