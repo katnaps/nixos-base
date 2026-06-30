@@ -72,12 +72,13 @@ like this:
 # cfdisk /dev/nvme0nX
 # cfdisk /dev/sdX
 ```
-since you have wiped the disk storage, using the `cfdisk` tool it will ask you to select label type:
+since you have wiped the disk storage, using the `cfdisk` tool it will ask you to  
+Select label type
 ```
 gpt
 ```
 now in cfdisk tool you want to create a UEFI boot partition
-create a new partition by pressing Enter:
+create a new partition by pressing Enter
 ```
 1G EFI System
 ```
