@@ -238,10 +238,10 @@ you will need to double check and also change the hostname and username to your 
 
 ## Default username is `katnaps`
 change it to your own username
-## Default hostname will be `nixos`
+## Default hostname will be `nixos-fruit`
 change it to your own hostname
 
-### **Making sure the hostname in both configuration.nix & flake.nix is the same**
+### Making sure the hostname in both configuration.nix & flake.nix is the same
 
 ## Use vim
 changing hostname and username in the following files using vim:
@@ -261,18 +261,18 @@ home.homeDirectory = "/home/katnaps";
 
 ### flake.nix
 **Remember to have hostname the same as in configuration.nix**  
-change `nixos` to something you prefer  
+change `nixos-fruit` to something you prefer  
 look for this line:
 ```
 nixosConfigurations = {
-    nixos = nixpkgs.lib.nixosSystem {
+    nixos-fruit = nixpkgs.lib.nixosSystem {
     };
 };
 ```
 For example like this:
 ```
 nixosConfigurations = {
-    juicebox = nixpkgs.lib.nixosSystem {
+    nixos-bowl = nixpkgs.lib.nixosSystem {
     };
 };
 ```
@@ -283,10 +283,10 @@ users.katnaps = import ./home-manager/home.nix;
 ```
 ### configuration.nix
 **Remember to have hostname the same as in flake.nix**  
-change `"nixos"` to something you prefer  
+change `"nixos-fruit"` to something you prefer  
 look for this line:
 ```
-networking.hostName = "nixos"; # Define your hostname.
+networking.hostName = "nixos-fruit"; # Define your hostname.
 ```
 change `katnaps` to something you prefer  
 look for this line:
