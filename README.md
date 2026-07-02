@@ -241,7 +241,7 @@ change it to your own username
 ## Default hostname will be `nixos-fruit`
 change it to your own hostname
 
-### Making sure the hostname in both configuration.nix & flake.nix is the same
+### Make sure the hostname in both configuration.nix & flake.nix is the same
 
 ## Use vim
 changing hostname and username in the following files using vim:
@@ -315,7 +315,7 @@ it will create a flake.lock file in the directory, check it with
 by running this command below it should use the flake.nix in the directory to start installation process we will be
 using the `--flake` flag
 ```
-# nixos-install --flake /mnt/etc/nixos#hostname
+# nixos-install --flake /mnt/etc/nixos#nixos-fruit
 ```
 
 ## After installation completion
