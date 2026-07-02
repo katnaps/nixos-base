@@ -315,7 +315,7 @@ it will create a flake.lock file in the directory, check it with
 by running this command below it should use the flake.nix in the directory to start installation process we will be
 using the `--flake` flag
 ```
-# nixos-install --flake /mnt/etc/nixos#hostname
+# nixos-install --flake /mnt/etc/nixos#nixos-fruit
 ```
 
 ## After installation completion
