@@ -10,8 +10,6 @@ final: prev: {
       hash = "sha256-rQKOSSVLxFUaE/CP55BMY9ArplDXe+iuFbs7CgrZSm8=";
     };
 
-    # Keeping it lightweight and fast by removing autoreconfHook
-    # and clearing older patches cleanly
     patches = [ ];
   });
 }
