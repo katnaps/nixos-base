@@ -17,7 +17,7 @@
     { nixpkgs, home-manager, ... }@inputs:
     {
       nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
+        nixos-fruit = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
@@ -30,7 +30,7 @@
 
             {
               nixpkgs.overlays = [
-                (import ./overlays/bluez-585.nix)
+                (import ./overlays/bluez.nix)
                 (import ./overlays/unstable.nix inputs)
               ];
             }
