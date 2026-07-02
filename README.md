@@ -241,7 +241,7 @@ change it to your own username
 ## Default hostname will be `nixos-fruit`
 change it to your own hostname
 
-### Making sure the hostname in both configuration.nix & flake.nix is the same
+### Make sure the hostname in both configuration.nix & flake.nix is the same
 
 ## Use vim
 changing hostname and username in the following files using vim:
