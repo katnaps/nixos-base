@@ -292,6 +292,12 @@ change `katnaps` to something you prefer
 look for this line:
 ```
 users.users.katnaps = {
+  isNormalUser = true;
+  extraGroups = [ "wheel" ];
+  packages = with pkgs; [
+    tree
+  ];
+};
 ```
 ### Be sure that the hostname in configuration.nix & flake.nix is matching
 
