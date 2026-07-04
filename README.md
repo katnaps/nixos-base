@@ -190,7 +190,7 @@ since we are going to use the repo's `configuration.nix` file, rename it by:
 # mv -v configuration.nix configuration.nix.backup
 ```
 
-## git clone
+## Git Clone
 ```
 # git clone https://github.com/katnaps/nixos-base.git
 ```
