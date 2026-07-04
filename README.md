@@ -292,8 +292,8 @@ change `katnaps` to something you prefer
 look for this line:
 ```
 users.users.katnaps = {
- isNormalUser = true;
- extraGroups = [ "wheel" ];
+  isNormalUser = true;
+  extraGroups = [ "wheel" ];
   packages = with pkgs; [
     tree
   ];
