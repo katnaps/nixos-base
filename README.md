@@ -324,7 +324,7 @@ using the `--flake` flag
 # nixos-install --flake /mnt/etc/nixos#nixos-fruit
 ```
 
-## After installation completion
+## Set root password to complete installation
 You will be prompt to set a password for root user
 ```
 setting root password...
