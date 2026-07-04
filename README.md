@@ -331,7 +331,8 @@ setting root password...
 New password: ***
 Retype new password: ***
 ```
-
+After you have set the root password it will say<br/>
+> installation completed!
 ## Set password for user account declared from your configuration.nix, flake.nix and home.nix
 If you plan to log in using this user, set a password before rebooting, e.g. for the katnaps user:
 ```
