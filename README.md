@@ -56,14 +56,23 @@ nvme0nX
 sdX
 └── sdX1 - [ data ]
 ```
-since we are installing NixOS with a clean slate then you will want to wipe the disk drives with `wipefs -a`
+since we are installing NixOS with a clean slate then you will want to wipe the Solid State Drive (SSD) with `blkdiscard`
 
-## wipefs -a
-you want to wipe it with the following command:
+## blkdiscard 
+### blkdiscard -s, --secure
+you want to wipe it with the following command:<br/>
+using `blkdiscard -s`
 ```
-# wipefs -a /dev/nvme0nX
-# wipefs -a /dev/sdX
+# blkdiscard -s /dev/nvme0nX
+# blkdiscard -s /dev/sdX
 ```
+### blkdiscard -f, --force
+If there is an error or hardware does not support Secure Erase, then use<br/>
+`bkldiscard -f`
+```
+# blkdiscard -f /dev/nvme0nX
+# blkdiscard -f /dev/sdX
+``` 
 
 ## cfdisk
 once you have a wiped your disk devices, proceed with using the `cfdisk` tool to create a new partition on your new wipe devices
