@@ -41,7 +41,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # Install microcode for Intel CPU
+  # Install Microcode for Intel CPU
   hardware.cpu.intel.updateMicrocode = true;
 
   # Enable CUPS to print documents.
