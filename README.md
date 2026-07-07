@@ -66,6 +66,7 @@ using `blkdiscard -s`
 # blkdiscard -s /dev/nvme0nX
 # blkdiscard -s /dev/sdX
 ```
+If `blkdiscard -s` does not work then you need to use `blkdiscard -f`
 ### blkdiscard -f, --force
 If there is an error or hardware does not support Secure Erase, then use<br/>
 `bkldiscard -f`
