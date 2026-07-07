@@ -60,7 +60,7 @@ since we are installing NixOS with a clean slate then you will want to wipe the 
 
 ## blkdiscard 
 ### blkdiscard -s, --secure
-you want to wipe it with the following command:<br/>
+You want to wipe it with the following command:<br/>
 using `blkdiscard -s`
 ```
 # blkdiscard -s /dev/nvme0nX
