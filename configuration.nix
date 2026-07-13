@@ -82,7 +82,6 @@
     wget
     curl
     usbutils
-    unzip
     alsa-utils
   ];
 
