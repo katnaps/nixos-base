@@ -1,5 +1,5 @@
 # Installation Guide
-## Unstable Version -- NixOS 26.05 (Zokor) x86_64
+## Unstable Version -- NixOS 26.11 (Zokor) x86_64
 
 ### Features:
 This install contains:
