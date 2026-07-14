@@ -2,7 +2,7 @@
 ## Unstable Version -- NixOS 26.11 (Zokor) x86_64
 
 ### Features:
-This install contains:
+This install contains:<br/>
 stable packages are able to be installed
 
 For example in configuration.nix
