@@ -19,6 +19,15 @@ home.packages = with pkgs; [
 ];
 ```
 
+### Index:
+- [cfdisk](#cfdisk)
+- [Format Partition](#formatting-partition)
+- [Mount Partition](#mount-partition)
+- [nixos-generate-config](#nixos-generate-config)
+- [nix-flake-update](#nix-flake-update)
+- [Install NixOS](#installing-nixos)
+- [Post-reboot](#post-reboot)
+
 
 Take a look at installation section in the official NixOS Manual guide page below.
 ## [Official NixOS Manual](https://nixos.org/manual/nixos/stable/index.html#sec-installation-manual)
@@ -354,5 +363,28 @@ If everything went well:
 ```
 ### This installation will put you in a tty shell
 Use your declared user account to log in. If you didn’t declare one, you should still be able to log in using the root user.
-### Post-reboot
-After reboot you can add other packages in the configuration.nix or home.nix file and customise to your liking!
+
+## Post-reboot
+After reboot you can add other packages in the configuration.nix or home.nix file and customise to your liking!  
+Be sure to remove `~/.nix-profile`
+
+## Remove ~/.nix-profile
+After rebooting into the new installed NixOS system and you run `ls -la` at your home user's directory  
+when you are at your home directory run this command to list all the files and directories
+```
+# ls -la
+```
+If there is a symlink file called .nix-profile and its highlighed in red, it means the symlink is broken
+```
+.nix-profile -> /home/username/.local/state/nix/profiles/profile
+```
+So if you see it show up like this and it's red, remove it to avoid future issue down the line.  
+Using this command to remove the symlink file
+```
+# rm -v ~/.nix-profile
+```
+the rm -v flag will verbose and let you know that the file was removed  
+run `ls -la` again to confirm the symlink file is removed
+```
+# ls -la
+```
