@@ -18,14 +18,6 @@ home.packages = with pkgs; [
     stable.fastfetch
 ];
 ```
-### Index:
-- [cfdisk](#cfdisk)
-- [Format Partition](#formatting-partition)
-- [Mount Partition](#mount-partition)
-- [nixos-generate-config](#nixos-generate-config)
-- [nix-flake-update](#nix-flake-update)
-- [Install NixOS](#installing-nixos)
-- [Post-reboot](#post-reboot)
 
 Take a look at installation section in the official NixOS Manual guide page below.
 ## [Official NixOS Manual](https://nixos.org/manual/nixos/stable/index.html#sec-installation-manual)
