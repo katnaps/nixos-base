@@ -356,3 +356,23 @@ If everything went well:
 Use your declared user account to log in. If you didn’t declare one, you should still be able to log in using the root user.
 ### Post-reboot
 After reboot you can add other packages in the configuration.nix or home.nix file and customise to your liking!
+## Remove ~/.nix-profile
+After rebooting into the new install NixOS system and you use `ls -la` at your home user's directory  
+when you are at you home directory run this command to list all the first and directory in that directory you are at
+```
+# ls -la
+```
+If there is a symlink file called .nix-profile and its highlighed in red means the symlink is broken
+```
+.nix-profile -> /home/username/.local/state/nix/profiles/profile
+```
+So if you see it show up like this and it's red, remove it to avoid future issue down the line.  
+Using this command to remove the symlink file
+```
+# rm -v ~/.nix-profile
+```
+the rm -v flag will verbose and let you know that the file was removed  
+run `ls -la` again to confirm the symlink file is removed
+```
+# ls -la
+```
