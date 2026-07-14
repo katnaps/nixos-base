@@ -19,13 +19,13 @@ home.packages = with pkgs; [
 ];
 ```
 ### Index:
-- [cfdisk](https://github.com/katnaps/nixos-base/edit/main/README.md#cfdisk)
-- [Format Partition](https://github.com/katnaps/nixos-base/edit/main/README.md#formatting-partition)
-- [Mount Partition](https://github.com/katnaps/nixos-base/edit/main/README.md#mount-partition)
-- [nixos-generate-config](https://github.com/katnaps/nixos-base/edit/main/README.md#nixos-generate-config)
-- [nix-flake-update](https://github.com/katnaps/nixos-base/edit/main/README.md#nix-flake-update)
-- [Install NixOS](https://github.com/katnaps/nixos-base/edit/main/README.md#installing-nixos)
-- [Post-reboot](https://github.com/katnaps/nixos-base/edit/main/README.md#post-reboot)
+- [Cfdisk](#cfdisk)
+- [Format Partition](#formatting-partition)
+- [Mount Partition](#mount-partition)
+- [Nixos-generate-config](#nixos-generate-config)
+- [Nix-flake-update](#nix-flake-update)
+- [Install NixOS](#installing-nixos)
+- [Post-reboot](#post-reboot)
 
 Take a look at installation section in the official NixOS Manual guide page below.
 ## [Official NixOS Manual](https://nixos.org/manual/nixos/stable/index.html#sec-installation-manual)
