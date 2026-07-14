@@ -354,8 +354,9 @@ If everything went well:
 ```
 ### This installation will put you in a tty shell
 Use your declared user account to log in. If you didn’t declare one, you should still be able to log in using the root user.
-### Post-reboot
-After reboot you can add other packages in the configuration.nix or home.nix file and customise to your liking!
+## Post-reboot
+After reboot you can add other packages in the configuration.nix or home.nix file and customise to your liking!<br/>
+
 ## Remove ~/.nix-profile
 After rebooting into the new installed NixOS system and you run `ls -la` at your home user's directory  
 when you are at your home directory run this command to list all the files and directories
