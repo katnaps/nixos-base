@@ -19,11 +19,11 @@ home.packages = with pkgs; [
 ];
 ```
 ### Index:
-- [Cfdisk](#cfdisk)
+- [cfdisk](#cfdisk)
 - [Format Partition](#formatting-partition)
 - [Mount Partition](#mount-partition)
-- [Nixos-generate-config](#nixos-generate-config)
-- [Nix-flake-update](#nix-flake-update)
+- [nixos-generate-config](#nixos-generate-config)
+- [nix-flake-update](#nix-flake-update)
 - [Install NixOS](#installing-nixos)
 - [Post-reboot](#post-reboot)
 
