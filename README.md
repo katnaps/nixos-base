@@ -2,7 +2,7 @@
 ## Stable Version -- NixOS 26.05 (Yarara) x86_64
 
 ### Features:
-This install contains:
+This install contains:<br/>
 Unstable packages are able to be installed
 
 For example in configuration.nix
