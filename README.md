@@ -32,7 +32,7 @@ home.packages = with pkgs; [
 Take a look at installation section in the official NixOS Manual guide page below.
 ## [Official NixOS Manual](https://nixos.org/manual/nixos/stable/index.html#sec-installation-manual)
 
-## Below is quick summary of installing NixOS these files
+## Installing NixOS instructions
 You will need to boot into usb boot drive containing NixOS installation iso image.
 
 This is a starting base for NixOS installation configuration with flake and home-manager to manage the packages.
