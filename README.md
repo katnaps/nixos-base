@@ -1,5 +1,5 @@
 # Installation Guide
-## Stable Version -- NixOS 26.05 (Yarara) x86_64
+## Stable Version - NixOS 26.05 (Yarara) x86_64
 
 ### Features:
 This install contains:<br/>
