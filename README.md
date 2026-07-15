@@ -1,21 +1,21 @@
 # Installation Guide
-## Unstable Version - NixOS 26.11 (Zokor) x86_64
+## Stable Version - NixOS 26.05 (Yarara) x86_64
 
 ### Features:
 This install contains:<br/>
-stable packages are able to be installed
+Unstable packages are able to be installed
 
 For example in configuration.nix
 ```
 environment.systemPackages = with pkgs; [
-    stable.fastfetch
+    unstable.fastfetch
 ];
 ```
 
 For home.nix installation
 ```
 home.packages = with pkgs; [
-    stable.fastfetch
+    unstable.fastfetch
 ];
 ```
 
