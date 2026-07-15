@@ -11,7 +11,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
-  # Set linux kernel version
+  # Set latest LTS linux kernel version
   boot.kernelPackages = pkgs.linuxPackages;
 
   # Use the systemd-boot EFI boot loader.
