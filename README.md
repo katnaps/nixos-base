@@ -181,12 +181,12 @@ your newly created partitions
 
 change to this directory
 ```
-# cd /mnt/etc/nixos/
+# cd /mnt/etc/nixos
 ```
 proceed to put the files in this directory
 
 ```
-/mnt/etc/nixos/
+/mnt/etc/nixos
 ```
 
 ## Download the repo with git clone
@@ -205,7 +205,7 @@ since we are going to use the repo's `configuration.nix` file, rename it by:
 ```
 be sure to move all the files from nixos-base directory to:
 ```
-/mnt/etc/nixos/
+/mnt/etc/nixos
 ```
 before moving all the files in nixos-base remove so unnecessary file
 first move to nixos-base directory with:
@@ -221,7 +221,7 @@ once the files have been removed move back out of nixos-base by
 ```
 # cd ../
 ```
-you should be back in `/mnt/etc/nixos/` directory now lets start moving all the files from `nixos-base` to `/mnt/etc/nixos/`  
+you should be back in `/mnt/etc/nixos` directory now lets start moving all the files from `nixos-base` to `/mnt/etc/nixos`  
 use this command to move all the files  
 from nixos-base
 ```
@@ -229,7 +229,7 @@ from nixos-base
 ```
 all of the files should have moved in 
 ```
-/mnt/etc/nixos/
+/mnt/etc/nixos
 ```
 directory. Check by using:
 ```
@@ -239,7 +239,7 @@ now delete the empty `nixos-base` directory with the following command
 ```
 # rm -v -rf nixos-base/
 ```
-now check the `/mnt/etc/nixos/` directory again with
+now check the `/mnt/etc/nixos` directory again with
 ```
 # ls -la
 ```
