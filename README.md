@@ -369,7 +369,7 @@ If there is a symlink file called .nix-profile and its highlighed in red, it mea
 .nix-profile -> /home/username/.local/state/nix/profiles/profile
 ```
 So if you see it show up like this and it's red, remove it to avoid future issues down the line.  
-Using this command to remove the symlink file
+Use this command to remove the symlink file
 ```
 # rm -v ~/.nix-profile
 ```
