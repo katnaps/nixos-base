@@ -109,14 +109,15 @@
   swapDevices = [
     {
       device = "/var/lib/swapfile";
-      size = 16 * 1024;
+      size = 8 * 1024;
       options = [ "discard" ];
       priority = 10;
     }
   ];
 
   boot.kernel.sysctl = {
-    "vm.swappiness" = 100;
+    "vm.swappiness" = 60;
+    "vm.page-cluster" = 0;
   };
 
   system.stateVersion = "26.05";
