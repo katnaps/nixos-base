@@ -33,7 +33,6 @@
 
             {
               nixpkgs.overlays = [
-                (import ./overlays/bluez.nix)
                 (import ./overlays/unstable.nix inputs)
               ];
             }
