@@ -4,7 +4,7 @@
   hardware.bluetooth = {
     enable = true;
 
-    # Isolate your custom bluez version right here!
+    # Isolate your custom bluez version right here
     package = pkgs.bluez.overrideAttrs (
       finalAttrs: _prev: {
         version = "5.85";
