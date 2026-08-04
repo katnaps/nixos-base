@@ -72,5 +72,18 @@
     gtk.enable = true;
   };
 
+  wayland.windowManager.hyprland = {
+    enable = true;
+    package = null;
+
+    systemd = {
+      enable = true;
+      variables = [ "--all" ];
+    };
+
+    configType = "lua";
+    # extraConfig = builtins.readFile ../config/hypr/hyprland.lua;
+  };
+
   home.stateVersion = "26.05";
 }
