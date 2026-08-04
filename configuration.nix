@@ -19,7 +19,14 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   nix.optimise.automatic = true;
-  nix.settings.auto-optimise-store = true;
+
+  nix.settings = {
+    auto-optimise-store = true;
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
 
   nix.gc = {
     automatic = true;
@@ -85,11 +92,6 @@
     liberation_ttf
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
-  ];
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
   ];
 
   # List services that you want to enable:
