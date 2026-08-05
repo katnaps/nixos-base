@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   home.username = "katnaps";
@@ -74,7 +79,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = null;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 
     systemd = {
       enable = true;
